@@ -267,6 +267,16 @@ public class GQLAlgorithmTest {
                 .checkSinkResult();
     }
 
+    @Test
+    public void testAlgorithm_circle() throws Exception {
+        QueryTester
+                .build()
+                .withGraphDefine("/query/test_w_circle_graph.sql")
+                .withQueryPath("/query/gql_algorithm_circle.sql")
+                .execute()
+                .checkSinkResult();
+    }
+
     private void clearGraph() throws IOException {
         File file = new File(TEST_GRAPH_PATH);
         if (file.exists()) {
